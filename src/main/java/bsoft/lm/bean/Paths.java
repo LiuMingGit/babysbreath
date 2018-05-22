@@ -1,5 +1,6 @@
 package bsoft.lm.bean;
 
+
 import javax.persistence.*;
 
 /**
@@ -13,9 +14,15 @@ import javax.persistence.*;
 public class Paths {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "SEQ_Paths", sequenceName = "SEQ_Paths",initialValue = 1,allocationSize = 100)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_Paths")
     private Integer id;
 
-    @Column(name = "文件路径")
+    //文件路径
+    @Column(name = "path")
     private String path;
+
+    @ManyToOne(targetEntity = ServerInfo.class)
+    @JoinColumn(name = "serverId")
+    private ServerInfo serverInfo;
 }

@@ -7,18 +7,27 @@ import java.util.List;
 @Table(name = "BBT_ServerInfo")
 public class ServerInfo {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "SEQ_ServerInfo", sequenceName = "SEQ_ServerInfo",initialValue = 1,allocationSize = 100)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ServerInfo")
     private Integer id;
 
-    @Column(name = "ip地址")
+    //ip地址
+    @Column(name = "ip")
     private String ip;
 
-    @Column(name = "用户名")
+    //服务器别名
+    @Column(name = "serverName")
+    private String serverName;
+
+    //用户名
+    @Column(name = "userName")
     private String userName;
 
-    @Column(name = "密码")
+    //密码
+    @Column(name = "passWord")
     private String passWord;
 
     @OneToMany(targetEntity = Paths.class)
+    @JoinColumn(name = "serverId")
     private List<Paths> paths;
 }
