@@ -30,4 +30,64 @@ public class ServerInfo {
     @OneToMany(targetEntity = Paths.class)
     @JoinColumn(name = "serverId")
     private List<Paths> paths;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getServerName() {
+        return serverName;
+    }
+
+    public void setServerName(String serverName) {
+        this.serverName = serverName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
+
+    public List<Paths> getPaths() {
+        return paths;
+    }
+
+    public void setPaths(List<Paths> paths) {
+        this.paths = paths;
+    }
+
+    @Override
+    public String toString() {
+        return "ServerInfo{" +
+                "id=" + id +
+                ", ip='" + ip + '\'' +
+                ", serverName='" + serverName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", paths=" + paths +
+                '}';
+    }
 }
